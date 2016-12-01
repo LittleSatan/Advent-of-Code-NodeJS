@@ -21,17 +21,17 @@ for (var i = 0; i < path.length; i++) {
         if (direction == 1) x++;
         if (direction == 3) x--;
         distance = Math.abs(x) + Math.abs(y)
-        pathTwice.push("X:" + x + "Y:" + y);
+        pathTwice.push("X: " + x + " and Y: " + y);
         steps--;
     }
 }
 console.log("The distance is " + distance);
-for (var i = 0; i < pathTwice.length; i++) {
-    for (var j = i + 1; j < pathTwice.length; j++) {
-        if (pathTwice[i] == pathTwice[j] && i != j) {
-            console.log(pathTwice[i]);
-            j = pathTwice.length;
-            i = pathTwice.length;
+pathTwiceLoop:
+    for (var i = 0; i < pathTwice.length; i++) {
+        for (var j = i + 1; j < pathTwice.length; j++) {
+            if (pathTwice[i] == pathTwice[j] && i != j) {
+                console.log(pathTwice[i]);
+                break pathTwiceLoop;
+            }
         }
     }
-}
